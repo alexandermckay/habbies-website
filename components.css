@@ -1,0 +1,134 @@
+nav {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow);
+    height: var(--height-nav);
+    padding: var(--space-md);
+    position: fixed;
+    transition: top 0.3s;
+    width: var(--screen-width);
+    z-index: var(--z-nav);
+
+    & li {
+        list-style: none;
+        font-size: 2rem;
+    }
+
+    & a {
+        color: var(--black);
+        text-decoration: none;
+    }
+}
+
+div.nav-spacing {
+    height: var(--height-nav);
+    width: var(--screen-width);
+}
+
+section.splash {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/splash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(var(--height-nav) * 6);
+    object-fit: cover;
+    width: var(--screen-width);
+}
+
+video {
+    background-color: var(--color-gray);
+    height: 50rem;
+    object-fit: cover;
+    object-position: left;
+    position: relative;
+    width: var(--screen-width);
+}
+
+div.feature-icons {
+    align-items: center;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    margin: var(--space-xl) 0;
+
+    & .feature-icon {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        & img {
+            background-color: var(--color-gray);
+            height: 6.4rem;
+            width: 6.4rem;
+        }
+
+        & p {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    }
+}
+
+
+section.video {
+    position: relative;
+
+    & img {
+        background-color: transparent;
+        height: 10rem;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 10rem;
+    }
+}
+
+
+div.store {
+    margin-top: var(--space-xl);
+
+    & img {
+        height: auto;
+        width: var(--screen-width);
+        margin-bottom: var(--space-md);
+    }
+
+    & div.information {
+        margin: 0 var(--space-md);
+    }
+
+    & a {
+        color: var(--color-gray);
+        font-family: 'kristen';
+        text-decoration: underline;
+    }
+}
+
+section.gallery {
+    .swiper {
+        width: var(--screen-width);
+        height: 50rem;
+    }
+
+    .swiper-button {
+        color: white;
+    }
+
+    & img {
+        height: 50rem;
+        width: var(--screen-width);
+
+    }
+}
+
+section.contact {
+    & label.name {
+        display: none;
+    }
+
+    & input.name {
+        display: none;
+    }
+}

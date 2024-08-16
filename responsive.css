@@ -1,0 +1,19 @@
+@media screen and (min-width: 100rem) {
+
+    section.product,
+    section.contact {
+        margin-left: 30rem;
+        margin-right: 30rem;
+    }
+
+    video {
+        height: 75rem;
+    }
+
+    /* section.gallery {
+        .swiper {
+            width: 50rem;
+            height: 75rem;
+        }
+    } */
+}
