@@ -77,6 +77,7 @@ section.video {
 
     & img {
         background-color: transparent;
+        display: none;
         height: 10rem;
         left: 50%;
         position: absolute;
