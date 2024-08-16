@@ -1,19 +1,103 @@
-@media screen and (min-width: 100rem) {
+@media screen and (min-width: 425px) {
+    h1 {
+        font-size: 8rem;
+    }
+
+    div.feature-icons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 10rem;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        line-height: 5rem;
+    }
+
+    p {
+        font-size: 2rem;
+        line-height: 3.5rem;
+    }
+
+    nav {
+        & li {
+            font-size: 3.2rem;
+        }
+    }
+
+    b,
+    address {
+        font-size: 2rem;
+    }
+
+    footer {
+        & p {
+            font-size: 2rem;
+        }
+    }
 
     section.product,
+    section.stores,
     section.contact {
-        margin-left: 30rem;
-        margin-right: 30rem;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+
+    section.stores {
+        & div.grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5rem;
+        }
+    }
+
+    div.store {
+        & img {
+            width: calc(50vw - 15vw - 2.5rem);
+        }
+    }
+
+    div.feature-icons {
+        & .feature-icon {
+            & img {
+                height: 8rem;
+                width: 8rem;
+            }
+
+            & p {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+        }
     }
 
     video {
-        height: 75rem;
+        height: 65rem;
     }
 
-    /* section.gallery {
-        .swiper {
-            width: 50rem;
-            height: 75rem;
+    section.gallery {
+
+        & .swiper,
+        img {
+            height: 65rem;
         }
-    } */
+    }
+}
+
+
+@media screen and (min-width: 1000px) {
+
+    section.product,
+    section.stores,
+    section.contact {
+        margin-left: 15vw;
+        margin-right: 15vw;
+    }
 }

@@ -44,8 +44,9 @@ void (function form() {
     const form = document.getElementById('contact')
     form.addEventListener('submit', (event) => {
         event.preventDefault()
-        const formData = new FormData(evt.currentTarget)
+        const formData = new FormData(event.currentTarget)
         const formObject = Object.fromEntries(formData.entries())
+        console.log(formObject)
         alert('We will be in touch soon.')
         if (formObject.name) {
             // ignore

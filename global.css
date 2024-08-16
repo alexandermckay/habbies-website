@@ -45,6 +45,8 @@ html {
 
 body {
     font-size: 1.6rem;
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 /* Typography */
@@ -71,7 +73,7 @@ address {
 
 h1 {
     color: var(--color-white);
-    font-size: 10rem;
+    font-size: 6rem;
     font-weight: lighter;
     line-height: 10rem;
 }

@@ -5,12 +5,12 @@ nav {
     padding: var(--space-md);
     position: fixed;
     transition: top 0.3s;
-    width: var(--screen-width);
+    width: calc(var(--screen-width));
     z-index: var(--z-nav);
 
     & li {
         list-style: none;
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     & a {
@@ -47,7 +47,7 @@ div.feature-icons {
     align-items: center;
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     margin: var(--space-xl) 0;
 
@@ -59,6 +59,7 @@ div.feature-icons {
 
         & img {
             background-color: var(--color-gray);
+            border-radius: var(--rounded-sm);
             height: 6.4rem;
             width: 6.4rem;
         }
@@ -118,8 +119,8 @@ section.gallery {
 
     & img {
         height: 50rem;
+        object-fit: cover;
         width: var(--screen-width);
-
     }
 }
 
