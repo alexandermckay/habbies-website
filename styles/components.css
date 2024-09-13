@@ -25,7 +25,7 @@ div.nav-spacing {
 }
 
 section.splash {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/splash.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/splash.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -132,5 +132,34 @@ section.contact {
 
     & input.name {
         display: none;
+    }
+}
+
+section.recipes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin: var(--space-xl) var(--space-md);
+
+    & div.recipe {
+        display: flex;
+        flex-direction: column;
+
+        & div.img {
+            background-color: var(--color-gray);
+            border-radius: 5px;
+            min-height: 25vh;
+            min-width: 25vh;
+        }
+
+        & b {
+            margin-top: var(--space-md);
+        }
+
+        & div.icons {
+            display: flex;
+            /* gap: var(--space-sm); */
+            margin-top: var(--space-sm);
+        }
     }
 }

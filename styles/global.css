@@ -1,12 +1,12 @@
 /* Fonts */
 @font-face {
     font-family: "eraser";
-    src: url("./fonts/eraser.ttf") format("truetype");
+    src: url("../fonts/eraser.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "kristen";
-    src: url("./fonts/kristen-itc.ttf") format("truetype");
+    src: url("../fonts/kristen-itc.ttf") format("truetype");
 }
 
 /* Variables */
@@ -131,6 +131,10 @@ textarea {
     width: 100%;
 }
 
+input[type="checkbox"] {
+    accent-color: var(--color-black);
+}
+
 input[type="submit"] {
     background-color: var(--color-black);
     border-radius: var(--rounded-sm);
@@ -142,4 +146,27 @@ input[type="submit"] {
 
 label[text='Name'] {
     display: none;
+}
+
+/* Tables */
+th,
+thead {
+    font-family: 'kristen';
+}
+
+
+
+tbody:before {
+    content: "-";
+    display: block;
+    line-height: 1em;
+    color: transparent;
+}
+
+tbody th {
+    font-weight: normal;
+}
+
+thead th {
+    font-weight: bold;
 }

@@ -63,6 +63,14 @@
     flex-direction: row;
 }
 
+.text-black {
+    color: var(--color-black);
+}
+
 .text-center {
     text-align: center;
+}
+
+.w-full {
+    width: 100%;
 }
