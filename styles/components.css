@@ -138,7 +138,8 @@ section.contact {
 section.recipes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
+    column-gap: var(--space-xl);
+    row-gap: var(--space-xl);
     margin: var(--space-xl) var(--space-md);
 
     & div.recipe {
@@ -150,16 +151,25 @@ section.recipes {
             border-radius: 5px;
             min-height: 25vh;
             min-width: 25vh;
+            max-width: 100%;
+            background-image: url('https://www.tasteofhome.com/wp-content/uploads/2018/01/Peppery-Roast-Beef_EXPS_TOHCA20_31448_B07_24_6b.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         & b {
             margin-top: var(--space-md);
+            padding: 0 var(--space-sm);
         }
 
         & div.icons {
             display: flex;
-            /* gap: var(--space-sm); */
+            justify-content: space-between;
             margin-top: var(--space-sm);
+            font-family: 'kristen';
+            color: var(--color-gray);
+            padding: 0 var(--space-sm);
         }
     }
 }
