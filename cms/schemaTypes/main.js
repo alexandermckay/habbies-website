@@ -9,6 +9,7 @@ export const Main = defineType(
                 name: 'Author',
                 to: [{ type: 'Author' }],
                 type: 'reference',
+                validation: v => v.required()
             }),
             defineField({
                 description: 'Title of the recipe that users will see',
@@ -34,22 +35,17 @@ export const Main = defineType(
                 validation: v => v.positive().required()
             }),
             defineField({
-                description: 'The cost per kg',
-                name: 'cost',
+                description: 'Expected cost of the recipe',
+                name: 'price',
                 type: 'number',
                 validation: v => v.required(),
                 options: {
                     list: [
-                        { title: '$0 - 10', value: 0 },
-                        { title: '$10 - 20', value: 1 },
-                        { title: '$20 - 30', value: 2 },
-                        { title: '$30 - 40', value: 3 },
-                        { title: '$40 - 50', value: 4 },
-                        { title: '$50 - 60', value: 5 },
-                        { title: '$60 - 70', value: 6 },
-                        { title: '$70 - 80', value: 7 },
-                        { title: '$80+', value: 8 },
-
+                        { title: '$0 - $20', value: 1 },
+                        { title: '$20 - $40', value: 2 },
+                        { title: '$40 - $60', value: 3 },
+                        { title: '$60 - $80', value: 4 },
+                        { title: '$80+', value: 5 },
                     ],
                 }
             }),
@@ -128,8 +124,8 @@ export const Main = defineType(
             defineField({
                 description: 'The order here is important, the first side will be the default.',
                 name: 'sides',
-                type: 'reference',
-                to: [{ type: 'Side' }],
+                type: 'array',
+                of: [{ type: 'reference', to: [{ type: 'Side' }] }],
                 validation: v => v.required()
 
             })

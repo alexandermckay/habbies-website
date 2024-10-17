@@ -146,6 +146,19 @@ section.recipes {
         display: flex;
         flex-direction: column;
 
+        & div.box-img {
+            position: relative;
+
+            & button {
+                position: absolute;
+                top: 1em;
+                right: 1em;
+                padding: 1em;
+                border-radius: 50px;
+                border: none;
+            }
+        }
+
         & div.img {
             background-color: var(--color-gray);
             border-radius: 5px;

@@ -1,36 +1,26 @@
-void (function createRecipeList() {
-    const mockData = [
-        {
-            price: 1, servings: 4, time: 79, title: 'Beef roast', url: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Peppery-Roast-Beef_EXPS_TOHCA20_31448_B07_24_6b.jpg'
-        },
-        {
-            price: 1, servings: 4, time: 79, title: 'Beef roast', url: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Peppery-Roast-Beef_EXPS_TOHCA20_31448_B07_24_6b.jpg'
-        },
-        {
-            price: 1, servings: 4, time: 79, title: 'Beef roast', url: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Peppery-Roast-Beef_EXPS_TOHCA20_31448_B07_24_6b.jpg'
-        },
-        {
-            price: 1, servings: 4, time: 79, title: 'Beef roast', url: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Peppery-Roast-Beef_EXPS_TOHCA20_31448_B07_24_6b.jpg'
-        },
-        {
-            price: 1, servings: 4, time: 79, title: 'Beef roast', url: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Peppery-Roast-Beef_EXPS_TOHCA20_31448_B07_24_6b.jpg'
-        },
-        {
-            price: 1, servings: 4, time: 79, title: 'Beef roast', url: 'https://www.tasteofhome.com/wp-content/uploads/2018/01/Peppery-Roast-Beef_EXPS_TOHCA20_31448_B07_24_6b.jpg'
-        }
-    ]
+void (async function createRecipeList() {
+    const { createClient } = SanityClient
 
+    const client = createClient({
+        projectId: 'yr351s4p',
+        dataset: 'production',
+        useCdn: true,
+        apiVersion: '2024-10-17',
 
-    const createRecipeListItem = ({ price, servings, time, title, url }) => {
+    })
+
+    const recipes = await client.fetch(`*[_type == 'Main']{ _id, price, servings, time, title, "url": image.asset->url }`)
+
+    const createRecipeListItem = ({ _id, price, servings, time, title, url }) => {
         const formatPrice = (price) => Array(price).fill('$').join('')
         const formatTime = (time) => {
             const oneHour = 60
             if (time <= oneHour) {
                 return time + 'm'
             } else {
-                const hours = Math.floor(time / oneHour)
-                const minutes = time % oneHour
-                return hours + 'h ' + minutes + 'm'
+                const hours = Math.floor(time / oneHour) + 'h '
+                const minutes = time % oneHour === 0 ? '' : time % oneHour
+                return hours + minutes
             }
         }
         if (typeof price === 'number' &&
@@ -40,7 +30,12 @@ void (function createRecipeList() {
             typeof url === 'string') {
             return `        
                 <div class="recipe">
-                    <div class="img" style="background-image:url('${url}')"></div>
+                    <div class="box-img">
+                        <a href="/recipe.html?_id=${_id}">
+                            <div class="img" style="background-image:url('${url}')"></div>
+                        </a>
+                        <button id="toggle-${_id}">+</button>
+                    </div>
                     <b class="title">${title}</b>
                     <div class="icons">
                         <div class="price">Price: ${formatPrice(price)}</div>
@@ -54,7 +49,29 @@ void (function createRecipeList() {
         }
     }
 
-    const innerHTML = mockData.reduce((htmlStr, recipe) => htmlStr + createRecipeListItem(recipe), '')
+    const innerHTML = recipes.reduce((htmlStr, recipe) => htmlStr + createRecipeListItem(recipe), '')
     document.querySelector('.recipes').innerHTML = innerHTML
+
+    recipes.forEach(({ _id }) => {
+        document.querySelector(`#toggle-${_id}`).onclick = () => {
+            const key = 'recipes'
+            const storedRecipes = JSON.parse(localStorage.getItem(key))
+            if (storedRecipes) {
+                if (storedRecipes.hasOwnProperty(_id)) {
+                    delete storedRecipes[_id]
+                    // Add toast
+                } else {
+                    storedRecipes[_id] = true
+                    // Add toast
+                }
+                const nextRecipes = JSON.stringify(storedRecipes)
+                localStorage.setItem(key, nextRecipes)
+            } else {
+                localStorage.setItem(key, JSON.stringify({ [_id]: true }))
+                // Add toast
+            }
+        }
+    })
+
 
 })()
