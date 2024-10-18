@@ -1,4 +1,8 @@
 @import './global.css';
 @import './utils.css';
 @import './components.css';
+@import './home.css';
+@import './recipes.css';
+@import './groceries.css';
+@import './recipe.css';
 @import './responsive.css';

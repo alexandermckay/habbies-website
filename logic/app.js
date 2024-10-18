@@ -1,70 +1,66 @@
-void (function videoPlayer() {
-    const video = document.getElementById('player')
-    const playButton = document.getElementById('play')
-
-    function onVideoPlay() {
-        playButton.style.display = 'none'
-        video.play()
-    }
-
-    function onVideoPause() {
-        playButton.style.display = 'block'
-        video.pause()
-    }
-
-    function onVideoToggle() {
-        if (video.paused) onVideoPlay()
-        else onVideoPause()
-    }
-
-    playButton.addEventListener('click', onVideoPlay)
-    video.addEventListener('click', onVideoToggle)
-})()
-
-void (function gallery() {
+void (function configureGallery() {
     const swiper = new window.Swiper('.swiper', {
-        // Optional parameters
         direction: 'horizontal',
         loop: true,
 
-        // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
 
-        // And if we need scrollbar
         scrollbar: {
             el: '.swiper-scrollbar',
         },
     })
 })()
 
-void (function form() {
+void (function configureForm() {
     const form = document.getElementById('contact')
+
     form.addEventListener('submit', (event) => {
         event.preventDefault()
+
         const formData = new FormData(event.currentTarget)
         const formObject = Object.fromEntries(formData.entries())
-        console.log(formObject)
-        alert('We will be in touch soon.')
-        if (formObject.name) {
-            // ignore
-        } else {
+
+        // bots will fill in the name field, whereas humans will not
+        if (!formObject.name) {
             // send email
+            alert('We will be in touch soon.')
         }
     })
 })()
 
-void (function nav() {
-    let prevScrollpos = window.scrollY
-    window.onscroll = function listener() {
-        const currentScrollPos = window.scrollY
-        if (prevScrollpos > currentScrollPos) {
-            document.querySelector("nav").style.top = "0"
-        } else if (currentScrollPos > 100) {
-            document.querySelector("nav").style.top = "-10rem"
+void (function configureNav() {
+    let savedScrollPosition = 0
+    const nav = document.querySelector("nav")
+    let ticking = false
+
+    const onScroll = () => {
+        const scrollPosition = window.scrollY
+        const scrollingUp = savedScrollPosition > scrollPosition
+        const scrolledBeyondNav = scrollPosition > 100
+
+        if (scrollingUp) {
+            nav.style.top = "0"
+        } else if (scrolledBeyondNav) {
+            if (nav.style.top !== '-10rem') {
+                nav.style.top = "-10rem"
+            }
         }
-        prevScrollpos = currentScrollPos
+
+        savedScrollPosition = scrollPosition
     }
+
+    const handleScroll = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                onScroll()
+                ticking = false
+            })
+            ticking = true
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll)
 })()

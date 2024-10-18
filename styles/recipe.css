@@ -1,0 +1,12 @@
+main.recipe {
+    div.img {
+        background-color: var(--color-gray);
+        border-radius: 5px;
+        min-height: 40vh;
+        min-width: 25vh;
+        max-width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

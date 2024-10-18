@@ -33,10 +33,6 @@ void (async function createRecipeList() {
             if (typeof Author.name === 'string' &&
                 typeof Author.url === 'string' &&
                 Array.isArray(ingredients) &&
-                typeof macros.carbs === 'number' &&
-                typeof macros.fats === 'number' &&
-                typeof macros.protein === 'number' &&
-                typeof macros.calories === 'number' &&
                 typeof price === 'number' &&
                 typeof recipe === 'string' &&
                 typeof servings === 'number' &&
@@ -45,7 +41,7 @@ void (async function createRecipeList() {
                 typeof title === 'string' &&
                 typeof tips === 'string' &&
                 typeof url === 'string') {
-                return `        
+                return /*html*/ `        
                     <div>
                         <div class="img" style="background-image:url('${url}')"></div>
                         <b class="title">${title}</b>
@@ -54,6 +50,19 @@ void (async function createRecipeList() {
                             <div class="time">Time: ${formatTime(time)}</div>
                             <div class="servings">Serves: ${servings}</div>
                         </div>
+                        <div class='ingredients'>
+                            <b>Ingredients</b>
+                            ${ingredients.map(i => `<p>${i.unit} ${i.ingredient}</p>`).join('')}
+                        </div>                        
+                        <div class='recipe'>
+                            <b>Recipe</b>
+                            <p>${recipe}</p>
+                        </div>
+                        <div class='tips'>
+                            <b>Tips</b>
+                            <p>${tips}</p>
+                        </div>
+                    </div>
                     </div>
                 `
             } else {

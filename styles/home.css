@@ -1,0 +1,103 @@
+section.splash {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/splash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(var(--height-nav) * 6);
+    object-fit: cover;
+}
+
+div.feature-icons {
+    align-items: center;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    margin: var(--space-lg) 0;
+
+    & .feature-icon {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        & img {
+            background-color: var(--color-gray);
+            border-radius: var(--rounded-sm);
+            height: 6.4rem;
+            width: 6.4rem;
+        }
+
+        & p {
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 2rem;
+        }
+    }
+}
+
+section.video {
+    position: relative;
+
+    video {
+        background-color: var(--color-gray);
+        height: 50rem;
+        object-fit: cover;
+        object-position: left;
+        position: relative;
+        width: var(--screen-width);
+        max-width: 100%;
+
+        &.center {
+            object-position: center;
+        }
+    }
+}
+
+div.store {
+    margin-top: var(--space-xl);
+
+    & img {
+        height: auto;
+        margin-bottom: var(--space-md);
+        width: var(--screen-width);
+        max-width: 100%;
+    }
+
+    & div.information {
+        margin: 0 var(--space-md);
+    }
+
+    & a {
+        color: var(--color-gray);
+        font-family: 'kristen';
+        text-decoration: underline;
+    }
+}
+
+section.gallery {
+    .swiper {
+        height: 50rem;
+        border-radius: 25px;
+    }
+
+    .swiper-button {
+        color: white;
+    }
+
+    & img {
+        height: 50rem;
+        object-fit: cover;
+        width: var(--screen-width);
+    }
+}
+
+section.contact {
+    & label.name {
+        display: none;
+    }
+
+    & input.name {
+        display: none;
+    }
+}

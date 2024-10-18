@@ -8,9 +8,6 @@
     }
 }
 
-
-
-
 @media screen and (min-width: 768px) {
     h1 {
         font-size: 10rem;
@@ -45,9 +42,22 @@
 
     section.product,
     section.stores,
-    section.contact {
+    section.contact,
+    section.gallery,
+    section.locations,
+    section.video {
         margin-left: 10vw;
         margin-right: 10vw;
+    }
+
+    img.rounded,
+    video.rounded {
+        border-radius: 25px;
+    }
+
+
+    section.recipes {
+        grid-template-columns: repeat(4, 1fr);
     }
 
     section.stores {

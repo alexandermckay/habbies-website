@@ -1,0 +1,11 @@
+main.groceries {
+    min-height: 75vh;
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    form.delete-recipe {
+        display: none;
+    }
+}

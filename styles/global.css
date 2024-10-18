@@ -12,14 +12,16 @@
 /* Variables */
 :root {
     --color-black: #434343;
+    --color-off-white: #dfdfdf80;
     --color-gray: #7a7a7a80;
     --color-white: white;
     --height-nav: 10rem;
     --rounded-sm: 0.5rem;
     --screen-width: 100vw;
     --size-md: 1.5rem;
-    --space-md: 2rem;
     --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 3rem;
     --space-xl: 5rem;
     --shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
     --z-nav: 10;
@@ -45,8 +47,6 @@ html {
 
 body {
     font-size: 1.6rem;
-    overflow-x: hidden;
-    width: 100vw;
 }
 
 /* Typography */
@@ -64,6 +64,7 @@ address {
 
 a {
     cursor: pointer;
+    color: white;
 }
 
 address {
@@ -82,9 +83,7 @@ h2 {
     color: var(--color-black);
     font-size: 2.5rem;
     font-weight: lighter;
-    margin-bottom: var(--space-sm);
-    margin-left: var(--space-md);
-    margin-right: var(--space-md);
+    margin-bottom: var(--space-md);
     line-height: 3rem;
 }
 
@@ -104,6 +103,17 @@ footer {
         color: var(--color-white);
         text-align: center;
     }
+
+    a {
+        font-family: 'Kristen';
+        margin-top: var(--space-sm);
+        font-size: 1rem;
+    }
+}
+
+/* Layout */
+.block {
+    display: block;
 }
 
 /* Forms */
@@ -148,13 +158,18 @@ label[text='Name'] {
     display: none;
 }
 
+/* Media */
+
+img.rounded,
+video.rounded {
+    border-radius: 0px;
+}
+
 /* Tables */
 th,
 thead {
     font-family: 'kristen';
 }
-
-
 
 tbody:before {
     content: "-";
@@ -165,8 +180,18 @@ tbody:before {
 
 tbody th {
     font-weight: normal;
+
 }
 
 thead th {
     font-weight: bold;
+}
+
+th {
+    text-align: left;
+    padding-left: 0.5rem;
+}
+
+tbody tr:nth-of-type(even) {
+    background: var(--color-off-white);
 }

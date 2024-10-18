@@ -19,19 +19,31 @@
 
     <div class="nav-spacing"></div>
 
+    <main class="groceries">
 
-    <h1 class="text-center text-black mt-xl">Groceries</h1>
+        <h1 class="text-center text-black mt-xl">Groceries</h1>
+        <p class="text-center mx-md mb-md">
+            <span id="recipes">Loading...</span>
+        </p>
 
-    <section class="table mx-md mt-xl">
-        <table class="w-full">
-            <thead>
-                <th></th>
-                <th>Quanity</th>
-                <th>Ingredient</th>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </section>
+        <form class="delete-recipe">
+            <select name="recipe" class="delete-recipe"></select>
+            <input type="submit" value="Delete recipe" />
+        </form>
+
+        <section class="table mx-md mt-xl">
+            <table class="w-full">
+                <thead>
+                    <th>Done</th>
+                    <th>Quanity</th>
+                    <th>Ingredient</th>
+                    <th>Meal</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+    </main>
 
 
 

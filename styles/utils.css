@@ -37,6 +37,10 @@
     justify-content: space-between;
 }
 
+.mb-md {
+    margin-bottom: var(--space-md);
+}
+
 .mt-md {
     margin-top: var(--space-md);
 }
