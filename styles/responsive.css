@@ -24,6 +24,8 @@
     }
 
     nav {
+        justify-content: space-evenly;
+
         & li {
             font-size: 3.2rem;
         }
@@ -42,7 +44,6 @@
 
     section.product,
     section.stores,
-    section.contact,
     section.gallery,
     section.locations,
     section.video {
@@ -71,6 +72,8 @@
     div.store {
         & img {
             width: calc(50vw - 15vw - 2.5rem);
+            height: 40vh;
+            object-fit: cover;
         }
     }
 
@@ -105,8 +108,7 @@
 @media screen and (min-width: 1000px) {
 
     section.product,
-    section.stores,
-    section.contact {
+    section.stores {
         margin-left: 15vw;
         margin-right: 15vw;
     }

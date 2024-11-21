@@ -2,6 +2,7 @@ nav {
     background-color: var(--color-white);
     box-shadow: var(--shadow);
     height: var(--height-nav);
+    justify-content: space-between;
     padding: var(--space-md);
     position: fixed;
     transition: top 0.3s;

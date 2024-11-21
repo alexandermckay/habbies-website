@@ -36,7 +36,13 @@ div.feature-icons {
     }
 }
 
+video {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
 section.video {
+
     position: relative;
 
     video {
@@ -54,8 +60,14 @@ section.video {
     }
 }
 
+section.stores {
+    p {
+        margin-bottom: var(--space-md);
+    }
+}
+
 div.store {
-    margin-top: var(--space-xl);
+    margin-top: var(--space-md);
 
     & img {
         height: auto;
@@ -72,6 +84,26 @@ div.store {
         color: var(--color-gray);
         font-family: 'kristen';
         text-decoration: underline;
+    }
+}
+
+section.inspiration {
+    p {
+        margin: 0 15vw;
+    }
+}
+
+section.locations {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+
+        .item {
+            border-radius: var(--rounded-sm);
+            padding: var(--space-md);
+            box-shadow: 0 3px 6px var(--color-gray);
+        }
     }
 }
 
@@ -93,6 +125,9 @@ section.gallery {
 }
 
 section.contact {
+    max-width: 50%;
+    margin: 5rem auto;
+
     & label.name {
         display: none;
     }
