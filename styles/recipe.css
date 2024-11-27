@@ -1,5 +1,8 @@
 main.recipe {
-    div.img {
+    width: 50%;
+    margin: 0 auto;
+
+    & div.img {
         background-color: var(--color-gray);
         border-radius: 5px;
         min-height: 40vh;
@@ -8,5 +11,38 @@ main.recipe {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        margin: var(--space-xl) 0;
+    }
+
+    & b {
+        display: block;
+        margin: 2rem 0 1rem 0;
+    }
+
+    & div.icons {
+        display: flex;
+        justify-content: space-between;
+        color: var(--color-gray);
+        flex: 1;
+
+        & p {
+            font-size: 2rem;
+            font-style: italic;
+        }
+    }
+
+    & div.ingredients {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    & p.ingredient {
+        text-transform: capitalize;
+    }
+
+    & div.recipe {
+        & p {
+            margin-bottom: 1.5rem;
+        }
     }
 }

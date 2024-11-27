@@ -44,7 +44,7 @@ function createTableRow({ _key, ingredient, unit, title }) {
                 <th><input id="toggle-${_key}" type='checkbox' ${keys.includes(_key) && 'checked'}  /></th>
                 <th>${unit}</th>
                 <th class='ingredient'>${ingredient}</th>
-                <th>${title.slice(0, 10)}...</th>
+                <th>${title}</th>
             </tr>
         `
     }

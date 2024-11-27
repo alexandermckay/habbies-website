@@ -7,6 +7,10 @@ section.splash {
     object-fit: cover;
 }
 
+section.product {
+    margin-top: 7.5rem;
+}
+
 div.feature-icons {
     align-items: center;
     display: grid;
@@ -92,7 +96,7 @@ div.store {
 
 section.inspiration {
     p {
-        margin: 0 15vw;
+        /* margin: 0 15vw; */
     }
 
     a {

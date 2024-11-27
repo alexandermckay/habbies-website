@@ -5,15 +5,20 @@ void (async function createRecipeList() {
         projectId: 'yr351s4p',
         dataset: 'production',
         useCdn: true,
-        apiVersion: '2024-10-17',
+        apiVersion: '2024-11-27',
 
     })
 
     const recipes = await client.fetch(`*[_type == 'Main']{ _id, price, servings, time, title, "url": image.asset->url }`)
 
+    const spinner = document.querySelector('.lds-spinner')
+    spinner.style = "display:none;"
+
     const createRecipeListItem = ({ _id, price, servings, time, title, url }) => {
         const key = 'recipes'
-        const selectedRecipe = JSON.parse(localStorage.getItem(key)).hasOwnProperty(_id)
+        const recipesSaved = localStorage.getItem(key)
+        const recipeSaved = recipesSaved && JSON.parse(recipesSaved).hasOwnProperty(_id)
+        const icon = recipeSaved ? 'images/bin.png' : 'images/basket.png'
         const formatPrice = (price) => Array(price).fill('$').join('')
         const formatTime = (time) => {
             const oneHour = 60
@@ -37,14 +42,14 @@ void (async function createRecipeList() {
                             <div class="img" style="background-image:url('${url}')"></div>
                         </a>
                         <button id="toggle-${_id}">
-                            <img alt='basket' id="toggle-icon-${_id}" class='basket' src="${selectedRecipe ? 'images/bin.png' : 'images/basket.png'}" />
+                            <img alt='basket' id="toggle-icon-${_id}" class='basket' src="${icon}" />
                         </button>
                     </div>
                     <b class="title">${title}</b>
                     <div class="icons">
-                        <div class="price">Price: ${formatPrice(price)}</div>
-                        <div class="time">Time: ${formatTime(time)}</div>
-                        <div class="servings">Serves: ${servings}</div>
+                        <p class="price">Price: ${formatPrice(price)}</p>
+                        <p class="time">Time: ${formatTime(time)}</p>
+                        <p class="servings">Serves: ${servings}</p>
                     </div>
                 </div>
             `
@@ -59,7 +64,8 @@ void (async function createRecipeList() {
     recipes.forEach(({ _id }) => {
         document.querySelector(`#toggle-${_id}`).onclick = () => {
             const key = 'recipes'
-            const storedRecipes = JSON.parse(localStorage.getItem(key))
+            const recipesSaved = localStorage.getItem(key)
+            const storedRecipes = recipesSaved && JSON.parse(recipesSaved)
             const icon = document.querySelector(`#toggle-icon-${_id}`)
             if (storedRecipes) {
                 if (storedRecipes.hasOwnProperty(_id)) {

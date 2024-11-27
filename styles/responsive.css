@@ -16,6 +16,8 @@
     h2 {
         font-size: 4.5rem;
         line-height: 5rem;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     p {
@@ -46,13 +48,10 @@
     section.stores,
     section.gallery,
     section.locations,
-    section.video {
+    section.video,
+    section.inspiration {
         margin-left: 10vw;
         margin-right: 10vw;
-    }
-
-    section.product {
-        margin-top: 7.5rem;
     }
 
     img.rounded,
@@ -103,7 +102,8 @@
 
         & .swiper,
         img {
-            height: 65rem;
+            height: 50rem;
+            width: 100%;
         }
     }
 }

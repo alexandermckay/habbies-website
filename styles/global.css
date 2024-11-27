@@ -52,6 +52,11 @@ li {
     font-family: 'eraser';
 }
 
+h2 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
 p,
 b,
 address,
@@ -130,13 +135,19 @@ input[type="checkbox"] {
     accent-color: var(--color-black);
 }
 
-input[type="submit"] {
+input[type="submit"],
+button.solid {
     background-color: var(--color-black);
     border-radius: var(--rounded-sm);
     color: var(--color-white);
     font-size: 2rem;
     margin-top: 1rem;
     padding: var(--space-sm);
+    cursor: pointer;
+}
+
+button.solid {
+    margin: 0;
 }
 
 label[text='Name'] {

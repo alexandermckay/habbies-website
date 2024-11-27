@@ -1,14 +1,18 @@
 section.recipes {
-    min-height: 75vh;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     column-gap: var(--space-xl);
     row-gap: var(--space-xl);
     margin: var(--space-xl) var(--space-md);
+    margin-bottom: 20rem;
 
     & div.recipe {
         display: flex;
         flex-direction: column;
+
+        & b {
+            flex: 2;
+        }
 
         & div.box-img {
             position: relative;
@@ -55,6 +59,14 @@ section.recipes {
             margin-top: var(--space-sm);
             color: var(--color-gray);
             padding: 0 var(--space-sm);
+            flex: 1;
+
+            & p {
+                font-size: 1.5rem;
+                font-style: italic;
+            }
         }
     }
+
+
 }

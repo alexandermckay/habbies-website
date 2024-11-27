@@ -5,7 +5,7 @@ void (async function createRecipeList() {
         projectId: 'yr351s4p',
         dataset: 'production',
         useCdn: true,
-        apiVersion: '2024-10-17',
+        apiVersion: '2024-11-27',
 
     })
 
@@ -15,8 +15,6 @@ void (async function createRecipeList() {
         const recipe = await client.fetch(`*[_type == 'Main' && _id == "${recipeId}"]{ 
             Author->{name, "url": picture.asset->url}, ingredients, macros, price, recipe, servings, sides[]->, time, tips, title, "url": image.asset->url 
         }[0]`)
-
-        console.log(recipe)
 
         const createRecipe = ({ Author, ingredients, macros, price, recipe, servings, sides, time, tips, title, url }) => {
             const formatPrice = (price) => Array(price).fill('$').join('')
@@ -42,27 +40,31 @@ void (async function createRecipeList() {
                 typeof tips === 'string' &&
                 typeof url === 'string') {
                 return /*html*/ `        
-                    <div>
+                    <div class='information'>
                         <div class="img" style="background-image:url('${url}')"></div>
+                        <button class="solid" id='add'>Add to grocery list</button>
+
                         <b class="title">${title}</b>
                         <div class="icons">
-                            <div class="price">Price: ${formatPrice(price)}</div>
-                            <div class="time">Time: ${formatTime(time)}</div>
-                            <div class="servings">Serves: ${servings}</div>
-                        </div>
+                            <p class="price">Price: ${formatPrice(price)}</p>
+                            <p class="time">Time: ${formatTime(time)}</p>
+                            <p class="servings">Serves: ${servings}</p>
+                        </div>       
+
+                        <b>Ingredients</b>
                         <div class='ingredients'>
-                            <b>Ingredients</b>
-                            ${ingredients.map(i => `<p>${i.unit} ${i.ingredient}</p>`).join('')}
-                        </div>                        
+                            ${ingredients.sort((a, b) => a.ingredient < b.ingredient ? 1 : -1).map(i => `<p>${i.unit} x</p><p class='ingredient'>${i.ingredient}</p>`).join('')}
+                        </div>     
+                        
                         <div class='recipe'>
                             <b>Recipe</b>
-                            <p>${recipe}</p>
+                            ${recipe.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
                         </div>
+
                         <div class='tips'>
                             <b>Tips</b>
                             <p>${tips}</p>
                         </div>
-                    </div>
                     </div>
                 `
             } else {
@@ -71,5 +73,29 @@ void (async function createRecipeList() {
         }
 
         document.querySelector('main.recipe').innerHTML = createRecipe(recipe)
+        document.querySelector('.lds-spinner').style = 'display:none;'
+
+        document.querySelector(`#add`).onclick = () => {
+            const key = 'recipes'
+            const recipesSaved = localStorage.getItem(key)
+            const storedRecipes = recipesSaved && JSON.parse(recipesSaved)
+
+            if (storedRecipes) {
+                if (storedRecipes.hasOwnProperty(recipeId)) {
+                    delete storedRecipes[recipeId]
+                    window.habbies.createToast('Deleted recipe')
+                } else {
+                    storedRecipes[recipeId] = true
+                    window.habbies.createToast('Added recipe')
+                }
+                const nextRecipes = JSON.stringify(storedRecipes)
+                localStorage.setItem(key, nextRecipes)
+            } else {
+                localStorage.setItem(key, JSON.stringify({ [recipeId]: true }))
+                window.habbies.createToast('Added recipe')
+            }
+        }
+    } else {
+        window.location.href = 'recipes.html'
     }
 })()
