@@ -53,7 +53,6 @@ section.recipes {
             display: flex;
             justify-content: space-between;
             margin-top: var(--space-sm);
-            font-family: 'kristen';
             color: var(--color-gray);
             padding: 0 var(--space-sm);
         }

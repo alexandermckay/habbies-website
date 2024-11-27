@@ -4,16 +4,11 @@
     src: url("../fonts/eraser.ttf") format("truetype");
 }
 
-@font-face {
-    font-family: "kristen";
-    src: url("../fonts/kristen-itc.ttf") format("truetype");
-}
-
 /* Variables */
 :root {
     --color-black: #434343;
     --color-off-white: #dfdfdf80;
-    --color-gray: #7a7a7a80;
+    --color-gray: #7a7a7a;
     --color-white: white;
     --height-nav: 10rem;
     --rounded-sm: 0.5rem;
@@ -59,8 +54,14 @@ li {
 
 p,
 b,
-address {
-    font-family: 'kristen';
+address,
+label,
+input,
+textarea,
+a,
+th,
+thead {
+    font-family: sans-serif;
 }
 
 a {
@@ -90,27 +91,11 @@ h2 {
 
 p {
     color: var(--color-gray);
-    font-family: 'kristen';
     letter-spacing: 0.15rem;
     line-height: 2.5rem;
 }
 
-footer {
-    background-color: var(--color-black);
-    margin-top: var(--space-xl);
-    padding: var(--space-md);
 
-    & p {
-        color: var(--color-white);
-        text-align: center;
-    }
-
-    a {
-        font-family: 'Kristen';
-        margin-top: var(--space-sm);
-        font-size: 1rem;
-    }
-}
 
 /* Layout */
 .block {
@@ -121,7 +106,6 @@ footer {
 label,
 input,
 textarea {
-    font-family: 'kristen';
     font-size: 1.6rem;
 }
 
@@ -167,10 +151,6 @@ video.rounded {
 }
 
 /* Tables */
-th,
-thead {
-    font-family: 'kristen';
-}
 
 tbody:before {
     content: "-";

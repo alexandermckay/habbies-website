@@ -16,6 +16,7 @@ nav {
 
     & a {
         color: var(--black);
+        font-family: 'eraser';
         text-decoration: none;
     }
 }
@@ -23,4 +24,25 @@ nav {
 div.nav-spacing {
     height: var(--height-nav);
     width: var(--screen-width);
+}
+
+footer {
+    background-color: var(--color-black);
+    margin-top: var(--space-xl);
+    padding: var(--space-md);
+
+    & div.attributions {
+        color: var(--color-white);
+        text-align: center;
+    }
+
+    & p {
+        color: var(--color-white);
+        text-align: center;
+    }
+
+    a {
+        margin-top: var(--space-sm);
+        font-size: 1rem;
+    }
 }

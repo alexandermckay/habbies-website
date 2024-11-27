@@ -14,7 +14,7 @@
     }
 
     h2 {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
         line-height: 5rem;
     }
 
@@ -51,6 +51,10 @@
         margin-right: 10vw;
     }
 
+    section.product {
+        margin-top: 7.5rem;
+    }
+
     img.rounded,
     video.rounded {
         border-radius: 25px;
@@ -65,7 +69,7 @@
         & div.grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 5rem;
+            column-gap: 5rem;
         }
     }
 

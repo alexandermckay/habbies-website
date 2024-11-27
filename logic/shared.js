@@ -10,7 +10,7 @@ const createToast = (text) => Toastify({
         background: "var(--color-black)",
         borderRadius: '25px',
         color: "var(--color-white)",
-        fontFamily: 'Kristen'
+        fontFamily: 'sans-serif'
     },
 }).showToast()
 
