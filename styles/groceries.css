@@ -6,6 +6,40 @@ main.groceries {
     }
 
     form.delete-recipe {
-        display: none;
+        display: flex;
+        gap: 1rem;
+
+        flex-direction: column;
+
+        & select {
+            color: var(--color-gray);
+            flex: 3;
+            font-size: medium;
+            font-family: sans-serif;
+            border: 1px dashed #7a7a7a3d;
+            padding: 1rem 0;
+        }
+
+        & input[type='submit'] {
+            flex: 1;
+            margin-top: 0;
+        }
     }
+
+    & th.ingredient {
+        text-transform: capitalize;
+    }
+
+    & tbody {
+        & th {
+            color: var(--color-gray);
+            padding: 1rem;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 50%;
+        margin: 0 auto;
+    }
+
 }

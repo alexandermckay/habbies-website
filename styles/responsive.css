@@ -28,6 +28,16 @@
     nav {
         justify-content: space-evenly;
 
+        & li#nav-home {
+            display: none;
+        }
+
+        & li#nav-stores,
+        li#nav-locations,
+        li#nav-contact {
+            display: inline-block;
+        }
+
         & li {
             font-size: 3.2rem;
         }
@@ -46,12 +56,16 @@
 
     section.product,
     section.stores,
-    section.gallery,
     section.locations,
     section.video,
     section.inspiration {
         margin-left: 10vw;
         margin-right: 10vw;
+    }
+
+    section.gallery {
+        margin-left: 20vw;
+        margin-right: 20vw;
     }
 
     img.rounded,
@@ -102,6 +116,7 @@
 
         & .swiper,
         img {
+            border-radius: 25px;
             height: 50rem;
             width: 100%;
         }

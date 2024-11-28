@@ -52,7 +52,7 @@ section.video {
         background-color: var(--color-gray);
         height: 50rem;
         object-fit: cover;
-        object-position: left;
+        object-position: center;
         position: relative;
         width: var(--screen-width);
         max-width: 100%;
@@ -125,7 +125,6 @@ section.locations {
 section.gallery {
     .swiper {
         height: 50rem;
-        border-radius: 25px;
     }
 
     .swiper-button {
@@ -140,7 +139,6 @@ section.gallery {
 }
 
 section.contact {
-    max-width: 50%;
     margin: 5rem auto;
 
     & label.name {
@@ -149,5 +147,9 @@ section.contact {
 
     & input.name {
         display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 50%;
     }
 }

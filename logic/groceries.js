@@ -69,7 +69,7 @@ function displayRecipeDropdown(titles) {
     const { keys } = accessLocalStorage('recipes')
     const form = document.querySelector('form.delete-recipe')
     if (keys?.length) {
-        form.style.display = 'block'
+        form.style.display = 'flex'
     } else {
         form.style.display = 'none'
     }

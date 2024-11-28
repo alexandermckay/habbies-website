@@ -65,7 +65,8 @@ input,
 textarea,
 a,
 th,
-thead {
+thead,
+select {
     font-family: sans-serif;
 }
 
