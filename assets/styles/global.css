@@ -1,0 +1,194 @@
+/* Fonts */
+@font-face {
+	font-family: 'eraser';
+	src: url('../fonts/eraser.ttf') format('truetype');
+}
+
+/* Variables */
+:root {
+	--color-black: #434343;
+	--color-off-white: #dfdfdf80;
+	--color-gray: #7a7a7a;
+	--color-white: white;
+	--height-nav: 10rem;
+	--rounded-sm: 0.5rem;
+	--rounded-md: 1rem;
+	--screen-width: 100vw;
+	--size-md: 1.5rem;
+	--space-sm: 1rem;
+	--space-md: 2rem;
+	--space-lg: 3rem;
+	--space-xl: 5rem;
+	--shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+	--z-nav: 10;
+}
+
+:target {
+	scroll-margin-top: var(--height-nav);
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 1.6rem;
+}
+
+/* Typography */
+h1,
+h2,
+li {
+	font-family: 'eraser';
+}
+
+h2 {
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+p,
+b,
+address,
+label,
+input,
+textarea,
+a,
+th,
+thead,
+select {
+	font-family: sans-serif;
+}
+
+a {
+	cursor: pointer;
+	color: white;
+}
+
+address {
+	color: var(--color-gray);
+	margin-top: 0.5rem;
+}
+
+h1 {
+	color: var(--color-white);
+	font-size: 6rem;
+	font-weight: lighter;
+	line-height: 10rem;
+}
+
+h2 {
+	color: var(--color-black);
+	font-size: 2.5rem;
+	font-weight: lighter;
+	margin-bottom: var(--space-xl);
+	line-height: 3rem;
+}
+
+p {
+	color: var(--color-gray);
+	letter-spacing: 0.15rem;
+	line-height: 2.5rem;
+}
+
+hr {
+	color: var(--color-gray);
+	margin: 0 25vw;
+	opacity: 0.4;
+}
+
+/* Layout */
+.block {
+	display: block;
+}
+
+/* Forms */
+label,
+input,
+textarea {
+	font-size: 1.6rem;
+}
+
+form {
+	margin: 0 var(--space-md);
+}
+
+label {
+	display: block;
+	margin-bottom: var(--space-sm);
+}
+
+input,
+textarea {
+	border: 1px dashed #7a7a7a26;
+	border-radius: var(--rounded-sm);
+	padding: var(--space-sm);
+	width: 100%;
+}
+
+input[type='checkbox'] {
+	accent-color: var(--color-black);
+}
+
+input[type='submit'],
+button.solid {
+	background-color: var(--color-black);
+	border-radius: var(--rounded-sm);
+	color: var(--color-white);
+	font-size: 2rem;
+	margin-top: 1rem;
+	padding: var(--space-sm);
+	cursor: pointer;
+}
+
+button.solid {
+	margin: 0;
+}
+
+label[text='Name'] {
+	display: none;
+}
+
+/* Media */
+
+img.rounded,
+video.rounded {
+	border-radius: 0px;
+}
+
+/* Tables */
+
+tbody:before {
+	content: '-';
+	display: block;
+	line-height: 1em;
+	color: transparent;
+}
+
+tbody th {
+	font-weight: normal;
+}
+
+thead th {
+	font-weight: bold;
+}
+
+th {
+	text-align: left;
+	padding-left: 0.5rem;
+}
+
+tbody tr:nth-of-type(even) {
+	background: var(--color-off-white);
+}
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Habbies Howe Beef</title>
+    <link rel="stylesheet" href="assets/styles/index.css" />
+    <link rel="stylesheet" href="assets/styles/wholesale.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="image/x-icon" href="/images/icons/letter-h.png">
+</head>
+
+<body>
+    <nav class="flex align-center row">
+        <li><a href='/index.html'>HOME</a></li>
+        <li><a href='/index.html#stores'>STORES</a></li>
+        <li><a href='/index.html#locations'>LOCATIONS</a></li>
+        <li><a href='/index.html#contact'>CONTACT</a></li>
+    </nav>
+
+    <div class="nav-spacing"></div>
+
+    <section class="splash relative">
+        <h1 class="absolute absolute-center text-center">HABBIES HOWE BEEF</h1>
+    </section>
+
+    <section class="product mb-xl" id="product">
+        <h2 class="text-center">WHY BUY FROM US?</h2>
+
+        <p class="text-center mx-md mb-md">Grain fed cattle account for over 50% of the cattle slaughtered in Australia
+            each year. Grain fed cattle are often raised in conditions akin to a battery farmed chicken. Their movement
+            is limited, their diet is simplistic - low in both fats and protein - and their quality of life is greatly
+            diminished.</p>
+
+        <p class="text-center mx-md mb-md">Not only is this bad for the animal, it is bad for the consumer. Muscle from
+            a primarily grain
+            fed animal often lacks the omega-3s and essential minerals and vitamins that you would find in a grass fed
+            equivalent.</p>
+
+        <p class="text-center mx-md mb-md">If you want the best for your customers, you should buy grass fed, paddock
+            raised meat.</p>
+
+    </section>
+
+    <hr />
+
+    <section class="video">
+        <h2 class="text-center mt-xl">WHAT DOES A FEEDLOT LOOK LIKE?</h2>
+        <p class="text-center mx-md mb-md">A feedlot is just a giant patch of dirt where cattle are raised in unhealthy,
+            unnatural
+            conditions, usually requiring high doses of hormones, antibiotics and antiparasitics to produce beef. Cattle
+            are born elsewhere on many different farms and moved into a single location. This spreads diseases and
+            parasites as well as decreasing animal welfare and consequentially the quality of the beef.</p>
+        <video class="rounded feedlot" id="player" loop autoplay muted playsinline
+            src="assets/videos/feedlot.mp4"></video>
+    </section>
+
+    <hr />
+
+    <section class="video">
+        <h2 class="text-center mt-xl">WHAT DOES A HABBIES FEEDLOT LOOK LIKE?</h2>
+        <p class="text-center mx-md mb-md">A Habbies Howe feedlot doesn't exist. Instead we grow and fatten all of our
+            cattle on a farm, in a paddock, that is stacked with grass. Cattle are never moved in from another farm.
+            Every animal has spent its entire life at Habbies Howe. This allows us to have 100% traceability and highly
+            refined genetics.</p>
+        <video class="rounded feedlot" id="player" loop autoplay muted playsinline
+            src="assets/videos/angus.mp4"></video>
+    </section>
+
+    <hr />
+
+    <section class="video">
+        <h2 class="text-center mt-xl">WHERE WOULD YOU RATHER BUY CATTLE FROM?</h2>
+        <div class="compare">
+            <video class="rounded feedlot" id="player" loop autoplay muted playsinline
+                src="assets/videos/feedlot.mp4"></video>
+            <video class="rounded feedlot" id="player" loop autoplay muted playsinline
+                src="assets/videos/angus.mp4"></video>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="video">
+        <h2 class="text-center mt-xl">WHERE IS HABBIES HOWE?</h2>
+        <p class="text-center mx-md mb-md">Located in the North East Victoria, Habbies Howe is perfectly positioned to
+            grow and sell beef. The climate is stable and rainfall is predictable. Additionally, the facilities required
+            to process the animal are located near both the farm and the end customer. Cattle in Australia travel (on
+            average) 1000 - 2500 kilometers to be processed. Compare that to the map below where cattle are kept within
+            a 50km radius for their entire lifespan. One more reason to buy beef
+            from us.</p>
+
+        <div id="map"></div>
+    </section>
+
+    <footer>
+        <p>Habbies Howe Beef, 2024 ©</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+            key: "AIzaSyBLg41LDHWCxgaqGRU9ARg84jpl0bZx09Y",
+            v: "weekly",
+        });
+    </script>
+    <script src="assets/logic/wholesale.js"></script>
+
+</body>
+
+</html>
+
+<!-- 
+    - 
+    a map that shows where the cattle are born, fattened, killed, butchered and finally sold. This will be compared to the Australian average to emphasise the point of difference.
+
+-->
